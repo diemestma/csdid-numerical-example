@@ -1,6 +1,10 @@
 # csdid-numerical-example
-Ejemplo de cálculo manual del ATT simple y grupal realizado por el comando CSDID en Stata
 
-# Contenido
-- simulacion_csdid.dta: datos simulados para DiD escalonado. 4 clústeres, 3 periodos, 2 obs por cluster-periodo (6 obs por cluster = 24 total).
-- csdid_manual.do: código para replicar el cálculo del ATT simple y grupal (grupo de control: nunca tratados) realizado por el comando CSDID en Stata.
+Cálculo manual de las medidas de agregación simple y grupal del ATT, y del error estándar Jackknife agrupado, replicando los resultados de los comandos `csdid` y `csdidjack` en Stata.
+
+## Contenido
+
+- **simulacion_csdid.dta**: datos simulados para DiD escalonado (4 clústeres, 3 periodos, 2 observaciones por clúster-periodo).
+- **csdid_manual.do**: código para replicar manualmente:
+  - El ATT simple y grupal (grupo de control: nunca tratados).
+  - El error estándar Jackknife agrupado del ATT simple.
