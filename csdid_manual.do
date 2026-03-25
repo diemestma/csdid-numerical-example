@@ -68,42 +68,6 @@ csdidjack
 
 * SE JACKKNIFE manual
 quietly {
-	
-	* CSDID manual
-	quietly {
-		
-		* 1. ATT(2,t) post-tratamiento (t >= g)
-		
-		* ATT(2,2)
-		scalar dif_21_t = (7.020 - 2.465) 
-		scalar dif_21_c = (2.504+4.398)/2 - (0.782+2.888)/2 
-
-		scalar att_22 = dif_21_t - dif_21_c
-
-		* ATT(2,3)
-		scalar dif_31_t = (8.686 - 2.465) 
-		scalar dif_31_c = (4.579+4.948)/2 - (0.782+2.888)/2 
-
-		scalar att_23 = dif_31_t - dif_31_c
-		
-		* theta_{G}(2)
-		scalar theta_2 = (att_22 + att_23)/2
-
-		* 2. ATT(3,t) post-tratamiento (t >= g)
-		
-		* ATT(3,3)
-		scalar dif_32_t = 10.263 - 5.116 
-		scalar dif_32_c = (4.579+4.948)/2 - (2.504+4.398)/2 
-
-		scalar att_33 =  dif_32_t - dif_32_c
-		
-		* theta_{G}(3)
-		scalar theta_3 = att_33
-		
-		
-		* ATT simple manual
-		scalar att_s_manual = (theta_2*(2/3) + theta_3*(1/3))
-	}
 
 	* 1. h=1
 	scalar h_1 = att_33
@@ -119,16 +83,16 @@ quietly {
 	scalar dif_21_t = (7.020 - 2.465) 
 	scalar dif_21_c = (4.398 - 2.888) 
 
-	scalar att_22 = dif_21_t - dif_21_c
+	scalar att_22_h3 = dif_21_t - dif_21_c
 
 	* ATT(2,3)
 	scalar dif_31_t = (8.686 - 2.465) 
 	scalar dif_31_c = (4.948 - 2.888) 
 
-	scalar att_23 = dif_31_t - dif_31_c
+	scalar att_23_h3 = dif_31_t - dif_31_c
 	
 	* theta_{G}(2)
-	scalar theta_2 = (att_22 + att_23)/2
+	scalar theta_2_h3 = (att_22_h3 + att_23_h3)/2
 
 	* - ATT(3,t) post-tratamiento (t >= g)
 	
@@ -136,13 +100,13 @@ quietly {
 	scalar dif_32_t = 10.263 - 5.116 
 	scalar dif_32_c = (4.948 - 4.398) 
 
-	scalar att_33 =  dif_32_t - dif_32_c
+	scalar att_33_h3 =  dif_32_t - dif_32_c
 	
 	* theta_{G}(3)
-	scalar theta_3 = att_33
+	scalar theta_3_h3 = att_33_h3
 	
 	* ATT simple post-tratamiento
-	scalar h_3 = (theta_2*(2/3) + theta_3*(1/3))
+	scalar h_3 = (theta_2_h3*(2/3) + theta_3_h3*(1/3))
 	
 	* 4. h=4
 	
@@ -152,16 +116,16 @@ quietly {
 	scalar dif_21_t = (7.020 - 2.465) 
 	scalar dif_21_c = (2.504 - 0.782)
 
-	scalar att_22 = dif_21_t - dif_21_c
+	scalar att_22_h4 = dif_21_t - dif_21_c
 
 	* ATT(2,3)
 	scalar dif_31_t = (8.686 - 2.465) 
 	scalar dif_31_c = (4.579 - 0.782)
 
-	scalar att_23 = dif_31_t - dif_31_c
+	scalar att_23_h4 = dif_31_t - dif_31_c
 	
 	* theta_{G}(2)
-	scalar theta_2 = (att_22 + att_23)/2
+	scalar theta_2_h4 = (att_22_h4 + att_23_h4)/2
 
 	* - ATT(3,t) post-tratamiento (t >= g)
 	
@@ -169,13 +133,13 @@ quietly {
 	scalar dif_32_t = 10.263 - 5.116 
 	scalar dif_32_c = (4.579 - 2.504)
 
-	scalar att_33 =  dif_32_t - dif_32_c
+	scalar att_33_h4 =  dif_32_t - dif_32_c
 	
 	* theta_{G}(3)
-	scalar theta_3 = att_33
+	scalar theta_3_h4 = att_33_h4
 	
 	* ATT simple post-tratamiento
-	scalar h_4 = (theta_2*(2/3) + theta_3*(1/3))
+	scalar h_4 = (theta_2_h4*(2/3) + theta_3_h4*(1/3))
 	
 	
 	* CV_3
@@ -185,5 +149,5 @@ quietly {
 }
 
 	* SE JACKKNIFE
-	di "SE Jackknife: " sqrt(cv_3)
+	di "SE Jackknife: " round(sqrt(cv_3), 0.0001)
 	
